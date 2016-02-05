@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -34,9 +33,9 @@ namespace Snake.model
 
         public static void LoadlLevel(int level)
         {
-            FileStream fs = new FileStream(string.Format(@"Levels\MapLevel{0}.txt", level), FileMode.Open, FileAccess.Read);
+       
+            FileStream fs = new FileStream(string.Format(@"Levels\Level{0}.txt", level) FileMode.Open, FileAccess.Read);
             StreamReader sr = new StreamReader(fs);
-
             string line;
             int row = -1;
             int col = -1;
@@ -48,7 +47,7 @@ namespace Snake.model
                 foreach (char c in line)
                 {
                     col++;
-                    if (c == '#')
+                    if (c == 'I')
                     {
                         wall.body.Add(new Point { x = col, y = row });
                     }
@@ -82,4 +81,4 @@ namespace Snake.model
         }
     }
 }
-}
+
