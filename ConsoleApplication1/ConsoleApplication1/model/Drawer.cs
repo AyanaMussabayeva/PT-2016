@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Snake.model
 {
-    class Drawer
+    public class Drawer
     {
         public List<Point> body = new List<Point>();
         public ConsoleColor color;

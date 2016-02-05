@@ -45,7 +45,10 @@
   <ItemGroup>
     <Compile Include="model\Food.cs" />
     <Compile Include="model\Drawer.cs" />
+    <Compile Include="model\Game.cs" />
     <Compile Include="model\Point.cs" />
+    <Compile Include="model\Snake.cs" />
+    <Compile Include="model\Wall.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

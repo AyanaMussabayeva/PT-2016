@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace Snake.model
 {
-    public class Point
+    public class Wall : Drawer
     {
-        public int x;
-        public int y;
-        public Point()
+        public Wall()
         {
-
+            sign = 'I';
         }
     }
 }
