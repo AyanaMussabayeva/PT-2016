@@ -10,6 +10,11 @@ using System.Threading.Tasks;
 
 namespace Snake
 {
+    /// <summary>
+    /// в классе Program вызываем ранее описаные в Game методы Init, LoadLevel и RandomSnakeMaker
+    /// первый цикл задает условие играть пока не закончатся уровни в папке с указанным путем
+    /// используя цикл задаем условие активности игры, где прописываем действия при нажатии клавиш, используя ConsoleKeyInfo
+    /// </summary>
     class Program
     {
         public static int level = 1;

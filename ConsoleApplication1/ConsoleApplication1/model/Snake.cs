@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace Snake.model
 {
+    /// <summary>
+    /// генерируем положение змейки, учитывая остальные объекты
+    /// прописываем условие столкновения змейки со стеной
+    /// </summary>
     [Serializable]
     public class Snake : Drawer
     {
@@ -72,6 +76,8 @@ namespace Snake.model
                 Program.level++;
                 Console.Clear();
                 Game.isActive = false;
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Ololo!New level is waiting!");
 
                 
             }

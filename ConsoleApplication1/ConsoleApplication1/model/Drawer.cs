@@ -9,6 +9,10 @@ using System.Threading.Tasks;
 
 namespace Snake.model
 {
+    /// <summary>
+    /// в классе Drawer создаем методы постановки объектов по координатам
+    /// реализация сериализации и десериализации с помощью BinaryFormatter
+    /// </summary>
     [Serializable]
     public class Drawer
     {
