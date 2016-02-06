@@ -45,10 +45,19 @@ namespace Snake.model
                 Game.food.body[0].y = new Random().Next(0, 47);
 
             }
+            if (Game.snake.body[0].x == 47 || Game.snake.body[0].x == 47 ||
+               Game.snake.body[0].y == 47|| Game.snake.body[0].y == 0)
+            {
+                Console.Clear();
+                Console.SetCursorPosition(20, 10);
+                Console.WriteLine("Your snake went away, haha!");
+                Game.isActive = false;
+                Program.level = 1;
+            }
 
-            
-           
-            for (int i = 0; i < Game.wall.body.Count; ++i)
+
+
+                for (int i = 0; i < Game.wall.body.Count; ++i)
             {
                 if (Game.food.body[0].x == Game.snake.body[0].x && Game.food.body[0].y == Game.snake.body[0].y)
                 {

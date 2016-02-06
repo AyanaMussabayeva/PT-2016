@@ -21,7 +21,7 @@ namespace Snake.model
         public char sign;
         public Drawer()
         {
-            color = ConsoleColor.White;
+            
         }
 
         public void Draw()
