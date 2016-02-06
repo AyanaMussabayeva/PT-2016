@@ -6,11 +6,14 @@ using System.Threading.Tasks;
 
 namespace Snake.model
 {
+    [Serializable]
     public class Food : Drawer
     {
+        
         public Food()
         {
             sign = '0';
         }
+        
     }
 }

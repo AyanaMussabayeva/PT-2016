@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Snake.model
 {
+    [Serializable]
     public class Snake : Drawer
     {
         public int MyProperty { get; set; }
@@ -41,18 +42,70 @@ namespace Snake.model
 
             }
 
+            
+           
             for (int i = 0; i < Game.wall.body.Count; ++i)
             {
-                if (Game.snake.body[0].x == Game.wall.body[i].x &&
-       Game.snake.body[0].y == Game.wall.body[i].y)
+                if (Game.food.body[0].x == Game.snake.body[0].x && Game.food.body[0].y == Game.snake.body[0].y)
+                {
+                    Console.Clear();
+                    RandomMaker();
+                }
+
+            }
+
+
+            for (int i = 0; i < Game.wall.body.Count; ++i)
+            {
+                if (Game.snake.body[0].x == Game.wall.body[i].x && Game.snake.body[0].y == Game.wall.body[i].y)
                 {
                     Console.Clear();
                     Console.SetCursorPosition(20, 10);
-                    Console.WriteLine("Game over!");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Game over,lalka!");
                     Game.isActive = false;
                 }
+                
+           }
+           if (Game.snake.body.Count > 4)
+           {
+                Program.level++;
+                Console.Clear();
+                Game.isActive = false;
+
+                
             }
 
         }
+        public static void RandomMaker()
+        {
+            Game.food.body[0].x = new Random().Next(0, 47);
+            Game.food.body[0].y = new Random().Next(0, 47);
+            for (int i=0; i<Game.wall.body.Count; i++)
+            {
+                if(Game.food.body[0].x == Game.wall.body[0].x || Game.food.body[0].y == Game.wall.body[0].y)
+                {
+                    RandomMaker();
+
+                }
+                else
+                {
+                    continue;
+                }
+                if (Game.food.body[0].x == Game.snake.body[0].x || Game.food.body[0].y == Game.snake.body[0].y)
+                {
+                    RandomMaker();
+
+                }
+                else
+                {
+                    continue;
+                }
+
+
+            }
+
+        }
+       
     }
 }

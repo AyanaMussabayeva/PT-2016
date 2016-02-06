@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Snake.model
 {
+    [Serializable]
     public class Wall : Drawer
     {
         public Wall()

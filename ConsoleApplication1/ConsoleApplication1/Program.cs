@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using Snake.model;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,43 +12,51 @@ namespace Snake
 {
     class Program
     {
+        public static int level = 1;
         static void Main(string[] args)
         {
-            Game.Init();
-            Game.LoadlLevel(1);
-
-            while (Game.isActive)
+            while(level<= Directory.GetFiles(@"C:\Users\Admin\Source\Repos\NewRepo\ConsoleApplication1\ConsoleApplication1\bin\Debug\Levels").Length)
             {
-                Game.Draw();
+                Game.Init();
+                Game.LoadlLevel(level);
+                Game.RandomSnakeMaker();
 
-                ConsoleKeyInfo pressedKey = Console.ReadKey();
-                switch (pressedKey.Key)
+                while (Game.isActive)
                 {
-                    case ConsoleKey.UpArrow:
-                        Game.snake.Move(0, -1);
-                        break;
-                    case ConsoleKey.DownArrow:
-                        Game.snake.Move(0, 1);
-                        break;
-                    case ConsoleKey.LeftArrow:
-                        Game.snake.Move(-1, 0);
-                        break;
-                    case ConsoleKey.RightArrow:
-                        Game.snake.Move(1, 0);
-                        break;
-                    case ConsoleKey.Escape:
-                        Game.isActive = false;
-                        break;
-                    case ConsoleKey.F2:
-                        Game.Save();
-                        break;
-                    case ConsoleKey.F3:
-                        Game.Resume();
-                        break;
-                }
-            }
+                    Game.Draw();
 
-            Console.ReadKey();
+                    ConsoleKeyInfo pressedKey = Console.ReadKey();
+                    switch (pressedKey.Key)
+                    {
+                        case ConsoleKey.UpArrow:
+                            Game.snake.Move(0, -1);
+                            break;
+                        case ConsoleKey.DownArrow:
+                            Game.snake.Move(0, 1);
+                            break;
+                        case ConsoleKey.LeftArrow:
+                            Game.snake.Move(-1, 0);
+                            break;
+                        case ConsoleKey.RightArrow:
+                            Game.snake.Move(1, 0);
+                            break;
+                        case ConsoleKey.Escape:
+                            Game.isActive = false;
+                            break;
+                        case ConsoleKey.F2:
+                            Game.Save();
+                            break;
+                        case ConsoleKey.F3:
+                            Game.Resume();
+                            break;
+                    }
+                }
+
+                Console.ReadKey();
+            }
+            Console.Clear();
+            Console.WriteLine("You won!");
         }
+        
     }
 }

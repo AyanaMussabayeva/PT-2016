@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 
 namespace Snake.model
 {
+    /// <summary>
+    ///
+    /// </summary>
+    [Serializable]
     public class Game
     {
         public static bool isActive;
@@ -22,19 +26,21 @@ namespace Snake.model
             wall = new Wall();
 
             snake.body.Add(new Point { x = 20, y = 20 });
-            food.body.Add(new Point { x = 10, y = 20 });
+            food.body.Add(new Point { x = 30, y = 20 });
 
-            food.color = ConsoleColor.Green;
-            wall.color = ConsoleColor.White;
-            snake.color = ConsoleColor.Yellow;
+            food.color = ConsoleColor.Red;
+            wall.color = ConsoleColor.Magenta;
+            snake.color = ConsoleColor.Green;
 
-            Console.SetWindowSize(48, 48);
+            Console.SetWindowSize(48, 52);
+            
+        
         }
-
+        
         public static void LoadlLevel(int level)
         {
        
-            FileStream fs = new FileStream(string.Format(@"Levels\Level{0}.txt", level) FileMode.Open, FileAccess.Read);
+            FileStream fs = new FileStream(string.Format(@"Levels\Level{0}.txt", level), FileMode.Open, FileAccess.Read);
             StreamReader sr = new StreamReader(fs);
             string line;
             int row = -1;
@@ -57,7 +63,44 @@ namespace Snake.model
             sr.Close();
             fs.Close();
         }
+        /*
+        public static void changeLevel(int level)
+        {
+            if (Game.snake.body.Count > 4)
+            {
+                Console.Clear();
+                Console.WriteLine("Ololo! New level is waiting!");
+                level++; 
+            }
+        }*/
+        public static void RandomSnakeMaker()
+        {
+            Game.snake.body[0].x = new Random().Next(0, 47);
+            Game.snake.body[0].y = new Random().Next(0, 47);
+            for (int i = 0; i < Game.wall.body.Count; i++)
+            {
+                if (Game.snake.body[0].x == Game.wall.body[0].x || Game.snake.body[0].y == Game.wall.body[0].y)
+                {
+                    RandomSnakeMaker();
 
+                }
+                else
+                {
+                    continue;
+                }
+                if (Game.food.body[0].x == Game.snake.body[0].x || Game.food.body[0].y == Game.snake.body[0].y)
+                {
+                    RandomSnakeMaker();
+
+                }
+                else
+                {
+                    continue;
+                }
+
+            }
+        }
+        
         public static void Save()
         {
             wall.Save();
@@ -78,7 +121,14 @@ namespace Snake.model
             snake.Draw();
             food.Draw();
             wall.Draw();
+            Console.SetCursorPosition(3, 48);
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("Level: " + Program.level);
+            Console.SetCursorPosition(3, 49);
+            Console.WriteLine("Points: " + Game.snake.body.Count);
+            
         }
+        
     }
 }
 
