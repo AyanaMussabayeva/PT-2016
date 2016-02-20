@@ -38,8 +38,28 @@ namespace Calculator.Model
 
                     case Operation.Sqrt:
                         resultNumber =  Math.Sqrt(secondNumber);
-                    break;
-                default:
+                        break;
+                    case Operation.Percent:
+                        switch (operation)
+                        {
+                            case Operation.Plus:
+                                resultNumber = firstNumber + (firstNumber / 100.0) * secondNumber;
+                                break;
+                            case Operation.Minus:
+                                resultNumber = firstNumber - (firstNumber / 100.0) * secondNumber;
+                                break;
+                            case Operation.Divide:
+                                resultNumber = (firstNumber / secondNumber) * 100.0;
+                                break;
+                            case Operation.Product:
+                                resultNumber = (firstNumber / 100.0) * secondNumber;
+                                break;
+                        }
+                        break;
+                    case Operation.Inverse:
+                        resultNumber = 1 / secondNumber;
+                        break;
+                     default:
                         break;
                 
             }

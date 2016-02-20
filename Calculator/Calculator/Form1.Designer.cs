@@ -47,6 +47,7 @@
             this.result = new System.Windows.Forms.Button();
             this.modificationInverse = new System.Windows.Forms.Button();
             this.modificationSqrt = new System.Windows.Forms.Button();
+            this.modificationPercent = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // pad1
@@ -258,6 +259,7 @@
             this.modificationInverse.TabIndex = 18;
             this.modificationInverse.Text = "1/x";
             this.modificationInverse.UseVisualStyleBackColor = true;
+            this.modificationInverse.Click += new System.EventHandler(this.operation_Click);
             // 
             // modificationSqrt
             // 
@@ -271,11 +273,24 @@
             this.modificationSqrt.UseVisualStyleBackColor = true;
             this.modificationSqrt.Click += new System.EventHandler(this.operation_Click);
             // 
+            // modificationPercent
+            // 
+            this.modificationPercent.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.modificationPercent.Location = new System.Drawing.Point(536, 160);
+            this.modificationPercent.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.modificationPercent.Name = "modificationPercent";
+            this.modificationPercent.Size = new System.Drawing.Size(73, 66);
+            this.modificationPercent.TabIndex = 20;
+            this.modificationPercent.Text = "%";
+            this.modificationPercent.UseVisualStyleBackColor = true;
+            this.modificationPercent.Click += new System.EventHandler(this.operation_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(758, 561);
+            this.Controls.Add(this.modificationPercent);
             this.Controls.Add(this.result);
             this.Controls.Add(this.modificationInverse);
             this.Controls.Add(this.modificationSqrt);
@@ -325,6 +340,7 @@
         private System.Windows.Forms.Button result;
         private System.Windows.Forms.Button modificationInverse;
         private System.Windows.Forms.Button modificationSqrt;
+        private System.Windows.Forms.Button modificationPercent;
     }
 }
 

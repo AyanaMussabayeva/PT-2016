@@ -24,8 +24,9 @@ namespace Calculator
         Minus,
         Divide,
         Product,
-        Sqrt,
-
+        Sqrt, 
+        Percent,
+        Inverse,
 
     }
 
@@ -79,9 +80,12 @@ namespace Calculator
                 case "sqrt":
                     caclulator.operation = Operation.Sqrt;
                     break;
-
-
-
+                case "%":
+                    caclulator.operation = Operation.Percent;
+                    break;
+                case "1/x":
+                    caclulator.operation = Operation.Inverse;
+                    break;
 
             }
         }

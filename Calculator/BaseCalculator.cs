@@ -15,7 +15,7 @@ namespace Calculator.Model
             secondNumber = double.Parse(text);
             currentState = State.WaitingForFirstNumber;
 
-            switch (operation)
+            /*switch (operation)
             {
                 case Operation.None:
                     break;
@@ -27,9 +27,15 @@ namespace Calculator.Model
                     break;
                 case Operation.Divide:
                     break;
+                 
+                case Operation.Sqrt:
+                    break;
+                case Operation.Percent:
+                    break;
                 default:
                     break;
-            }
+
+            }*/
 
             return resultNumber.ToString();
         }
