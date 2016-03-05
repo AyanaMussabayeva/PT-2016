@@ -13,6 +13,7 @@ namespace Calculator.Model
             public double resultNumber = 0;
             public State currentState = State.WaitingForFirstNumber;
             public Operation operation = Operation.None;
+            //public OperationClear operationclear = OperationClear.None;
 
             public string Evaluate(string text)
             {
@@ -61,10 +62,17 @@ namespace Calculator.Model
                         break;
                      default:
                         break;
-                
+                case Operation.C:
+                    resultNumber = 0;
+                    firstNumber = 0;
+                    secondNumber = 0;
+                    break;
+
+                  
+
             }
 
-                return resultNumber.ToString();
+            return resultNumber.ToString();
             }
         }
     

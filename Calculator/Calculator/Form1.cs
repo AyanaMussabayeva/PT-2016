@@ -27,8 +27,11 @@ namespace Calculator
         Sqrt, 
         Percent,
         Inverse,
+        C,
+        CE,
 
     }
+    
 
     public partial class Form1 : Form
     {
@@ -41,6 +44,10 @@ namespace Calculator
 
         private void pad_Click(object sender, EventArgs e)
         {
+            if (display.Text == "0")
+                display.Clear();
+
+          
             Button btn = sender as Button;
 
             switch (caclulator.currentState)
@@ -53,9 +60,14 @@ namespace Calculator
                     display.Text = "";
                     break;
             }
-
-            display.Text += btn.Text;
-
+            if (btn.Text == ",")
+            {
+                if (!display.Text.Contains(","))
+                    display.Text += btn.Text;
+            }
+            else
+                display.Text += btn.Text;
+            
         }
 
         private void operation_Click(object sender, EventArgs e)
@@ -86,13 +98,71 @@ namespace Calculator
                 case "1/x":
                     caclulator.operation = Operation.Inverse;
                     break;
+                case "C":
+                    caclulator.operation = Operation.C;
+                    break;
+
 
             }
+        }
+
+        private void operationClear_Click(object sender, EventArgs e)
+        {
+            Button operationClearButton = sender as Button;
+            string operationClear = operationClearButton.Text;
+
+            switch (operationClear)
+            {
+                case "C":
+                    caclulator.operation = Operation.C;
+                    display.Text = "0";
+                    break;
+                case "CE":
+                    display.Text = "0";
+                    break;
+            }
+        }
+        private void operationMemory_Click(object sender, EventArgs e)
+        {
+            Button operationMemoryButton = sender as Button;
+            string operationMemory = operationMemoryButton.Text;
+            double memoryNumber = 0;
+
+            switch (operationMemory)
+            {
+                case "MC":
+                    memoryNumber = 0;
+                    break;
+                case "MR":
+                    display.Text = memoryNumber.ToString();
+                    break;
+                case "MS":
+                    memoryNumber = double.Parse(display.Text);
+                    break;
+                case "M+":
+                    memoryNumber = memoryNumber + Double.Parse(display.Text);
+                    break;
+            }
+            memoryBox.Text = memoryNumber.ToString();
+        }
+        private void memory_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void result_Click(object sender, EventArgs e)
         {
             display.Text = caclulator.Evaluate(display.Text);
+        }
+
+        private void display_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
