@@ -34,8 +34,8 @@ namespace Snake.model
             snake.body.Add(new Point { x = 20, y = 20 });
             food.body.Add(new Point { x = 30, y = 20 });
 
-            food.color = ConsoleColor.Red;
-            wall.color = ConsoleColor.Magenta;
+            food.color = ConsoleColor.Magenta;
+            wall.color = ConsoleColor.Yellow;
             snake.color = ConsoleColor.Green;
 
             Console.SetWindowSize(48, 52);
@@ -69,16 +69,7 @@ namespace Snake.model
             sr.Close();
             fs.Close();
         }
-        /*
-        public static void changeLevel(int level)
-        {
-            if (Game.snake.body.Count > 4)
-            {
-                Console.Clear();
-                Console.WriteLine("Ololo! New level is waiting!");
-                level++; 
-            }
-        }*/
+       
         public static void RandomSnakeMaker()
         {
             Game.snake.body[0].x = new Random().Next(0, 47);
@@ -132,7 +123,9 @@ namespace Snake.model
             Console.WriteLine("Level: " + Program.level);
             Console.SetCursorPosition(3, 49);
             Console.WriteLine("Points: " + Game.snake.body.Count);
-            
+            Console.SetCursorPosition(3, 50);
+            Console.WriteLine("Time: " + Program.minuts + " : " + Program.seconds);
+
         }
         
     }

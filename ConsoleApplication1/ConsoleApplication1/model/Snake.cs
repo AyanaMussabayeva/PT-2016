@@ -49,7 +49,8 @@ namespace Snake.model
                Game.snake.body[0].y == 47|| Game.snake.body[0].y == 0)
             {
                 Console.Clear();
-                Console.SetCursorPosition(20, 10);
+                Console.SetCursorPosition(15, 10);
+                Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("Your snake went away, haha!");
                 Game.isActive = false;
                 Program.level = 1;
@@ -73,7 +74,7 @@ namespace Snake.model
                 if (Game.snake.body[0].x == Game.wall.body[i].x && Game.snake.body[0].y == Game.wall.body[i].y)
                 {
                     Console.Clear();
-                    Console.SetCursorPosition(20, 10);
+                    Console.SetCursorPosition(15, 10);
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Game over,lalka!");
                     Game.isActive = false;
@@ -85,6 +86,7 @@ namespace Snake.model
                 Program.level++;
                 Console.Clear();
                 Game.isActive = false;
+                Console.SetCursorPosition(15, 10);
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Ololo!New level is waiting!");
 

@@ -17,15 +17,12 @@ namespace Snake.model
     public class Drawer
     {
         public List<Point> body = new List<Point>();
+       
         public ConsoleColor color;
         public char sign;
-        public Drawer()
-        {
-            
-        }
-
         public void Draw()
         {
+            
             Console.ForegroundColor = color;
             foreach (Point p in body)
             {
