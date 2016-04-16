@@ -55,6 +55,7 @@
             this.operationMS = new System.Windows.Forms.Button();
             this.operationMR = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.plusminus = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // pad1
@@ -268,7 +269,7 @@
             this.modificationInverse.TabIndex = 18;
             this.modificationInverse.Text = "1/x";
             this.modificationInverse.UseVisualStyleBackColor = true;
-            this.modificationInverse.Click += new System.EventHandler(this.operation_Click);
+            this.modificationInverse.Click += new System.EventHandler(this.operationSpecial_Click);
             // 
             // modificationSqrt
             // 
@@ -280,7 +281,7 @@
             this.modificationSqrt.TabIndex = 17;
             this.modificationSqrt.Text = "sqrt";
             this.modificationSqrt.UseVisualStyleBackColor = true;
-            this.modificationSqrt.Click += new System.EventHandler(this.operation_Click);
+            this.modificationSqrt.Click += new System.EventHandler(this.operationSpecial_Click);
             // 
             // modificationPercent
             // 
@@ -292,7 +293,7 @@
             this.modificationPercent.TabIndex = 20;
             this.modificationPercent.Text = "%";
             this.modificationPercent.UseVisualStyleBackColor = true;
-            this.modificationPercent.Click += new System.EventHandler(this.operation_Click);
+            this.modificationPercent.Click += new System.EventHandler(this.operationSpecial_Click);
             // 
             // clearCE
             // 
@@ -371,11 +372,25 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.operationMemory_Click);
             // 
+            // plusminus
+            // 
+            this.plusminus.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.plusminus.Location = new System.Drawing.Point(265, 382);
+            this.plusminus.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.plusminus.Name = "plusminus";
+            this.plusminus.Size = new System.Drawing.Size(73, 66);
+            this.plusminus.TabIndex = 29;
+            this.plusminus.Text = "+-";
+            this.plusminus.UseVisualStyleBackColor = true;
+            this.plusminus.Click += new System.EventHandler(this.operationSpecial_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightCyan;
             this.ClientSize = new System.Drawing.Size(758, 561);
+            this.Controls.Add(this.plusminus);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.operationMR);
             this.Controls.Add(this.operationMS);
@@ -404,6 +419,7 @@
             this.Controls.Add(this.pad2);
             this.Controls.Add(this.pad1);
             this.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ForeColor = System.Drawing.Color.DodgerBlue;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
             this.Text = "Calculator";
@@ -442,6 +458,7 @@
         private System.Windows.Forms.Button operationMS;
         private System.Windows.Forms.Button operationMR;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button plusminus;
     }
 }
 
